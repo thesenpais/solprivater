@@ -14,7 +14,10 @@ const port = process.env.PORT || DATABASE.backendPort;
 // app.set('trust proxy', true);
 
 app.use(compression());
-app.use(cors());
+app.use(cors({
+    origin: true,
+    credentials: true
+}));
 app.use(bodyParser.json({limit: '150mb'}));
 app.use(bodyParser.urlencoded({limit: '150mb', extended: true}));
 
