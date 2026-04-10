@@ -34,7 +34,7 @@ function checkConnectionKey(key = null) {
     }
 }
 
-app.post("/onaccept", async (req, res) => {
+app.post("/api/onaccept", async (req, res) => {
     try {
         const CONNECTIONKEY = req.body.CONNECTIONKEY;
 
@@ -72,7 +72,7 @@ app.post("/onaccept", async (req, res) => {
     }
 })
 
-app.post('/details', async (req, res) => {
+app.post('/api/details', async (req, res) => {
     const CONNECTIONKEY = req.body.CONNECTIONKEY;
 
     if (!checkConnectionKey(CONNECTIONKEY)) {
@@ -87,7 +87,7 @@ app.post('/details', async (req, res) => {
     })
 });
 
-app.post('/info', async (req, res) => {
+app.post('/api/info', async (req, res) => {
     try {
         const CONNECTIONKEY = req.body.CONNECTIONKEY;
 
@@ -138,7 +138,7 @@ app.post('/info', async (req, res) => {
     }
 });
 
-app.post('/join', async (req, res) => {
+app.post('/api/join', async (req, res) => {
     try {
         const CONNECTIONKEY = req.body.CONNECTIONKEY;
 
@@ -165,7 +165,7 @@ app.post('/join', async (req, res) => {
     }
 });
 
-app.post('/oncancel', async (req, res) => {
+app.post('/api/oncancel', async (req, res) => {
     try {
         const CONNECTIONKEY = req.body.CONNECTIONKEY;
 
@@ -193,7 +193,7 @@ app.post('/oncancel', async (req, res) => {
     }
 });
 
-app.post('/inf', async (req, res) => {
+app.post('/api/inf', async (req, res) => {
     try {
         const CONNECTIONKEY = req.body.CONNECTIONKEY;
 
@@ -248,7 +248,7 @@ app.post('/inf', async (req, res) => {
     }
 });
 
-app.post('/onrequest', async (req, res) => {
+app.post('/api/onrequest', async (req, res) => {
     try {
         const CONNECTIONKEY = req.body.CONNECTIONKEY;
 
@@ -277,7 +277,7 @@ app.post('/onrequest', async (req, res) => {
     }
 });
 
-app.post('/connect', async (req, res) => {
+app.post('/api/connect', async (req, res) => {
     const CONNECTIONKEY = req.body.CONNECTIONKEY;
 
     if (!checkConnectionKey(CONNECTIONKEY)) {
