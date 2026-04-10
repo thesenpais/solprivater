@@ -18,6 +18,10 @@ app.use(cors());
 app.use(bodyParser.json({limit: '150mb'}));
 app.use(bodyParser.urlencoded({limit: '150mb', extended: true}));
 
+app.get('/', (req, res) => {
+    res.send('OK');
+});
+
 function checkConnectionKey(key = null) {
     try {
         if (key !== DATABASE.connectionKey) return false;

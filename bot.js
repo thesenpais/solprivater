@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const DATABASE = require("./database.json");
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-const bot = new TelegramBot(DATABASE.telegramBotToken, {});
+const bot = new TelegramBot(DATABASE.telegramBotToken, { polling: false });
 
 function sendMessageToChat(chat_id, message, reply_markup = null) {
     try {
