@@ -9,7 +9,7 @@ const { getHostnameFromRegex } = require("./functions");
 const { lmao } = require('./fun');
 
 const app = express();
-const port = DATABASE.backendPort;
+const port = process.env.PORT || DATABASE.backendPort;
 
 // app.set('trust proxy', true);
 
